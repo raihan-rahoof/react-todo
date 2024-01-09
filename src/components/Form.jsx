@@ -16,7 +16,16 @@ function Form({setInputText,setTodos,todos,inputText,setStatus}) {
     e.preventDefault()
     const checkIt = todos.some((todo)=> todo.text === inputText)
 
-    if(checkIt){
+    if(inputText.trim()== ''){
+      
+        Swal.fire({
+          title: 'Empty Task!',
+          text: 'Please enter a task before adding.',
+          icon: 'info',
+        });
+    
+
+      }else if(checkIt){
       Swal.fire({
         title: "Wait!",
         text: "This Task Already Exists.",
